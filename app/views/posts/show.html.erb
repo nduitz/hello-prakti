@@ -1,0 +1,23 @@
+<h1><%= @post.title%></h1>
+<p><%= @post.text%></p>
+
+<% unless @post.comments.empty? %>
+  <h2>Kommentare</h2>
+  <ul>
+<% @post.comments.each do |comment| %>
+  <li>
+    <%= comment.text  %>
+  </li>
+<% end %>
+</ul>
+
+<% end %>
+<h2>Neuer Kommentar</h2>
+<%= form_for [@post, @post.comments.new] do |f| %>
+  <div>
+  <%= f.text_area :text %>
+  </div>
+  <div>
+  <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+
+<% if !@posts.blank? %>
+<ul style>
+  <% for @post in @posts %>
+    <li>
+      <p><%= link_to @post.title, @post %></p>
+      <div>
+        <%= link_to 'editieren', edit_post_path(@post) %>
+        <%= link_to 'loeschen', post_path(@post), method: :delete %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<% end %>
+
